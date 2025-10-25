@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Essendon’s Finals Drought Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      padding: 5vh 2vw;
+      background: radial-gradient(circle, #d50000 0%, #000 70%);
+      background-size: 100% 100%;
+      animation: pulse 4s ease-in-out infinite;
+      overflow: hidden;
+    }
+
+    @keyframes pulse {
+      0% { background-size: 100% 100%; }
+      50% { background-size: 120% 120%; }
+      100% { background-size: 100% 100%; }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px black;
+    }
+
+    #counter {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    #fact {
+      font-size: 1.2em;
+      color: #ffcccc;
+      margin-top: 40px;
+      min-height: 2em;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #cccccc;
+    }
+
+    /* Peapod rain styling */
+    .peapod {
+      position: fixed;
+      top: -50px;
+      font-size: 2em;
+      animation: fall linear infinite;
+      z-index: 9999;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -50px;
+        transform: rotate(0deg);
+      }
+      100% {
+        top: 110vh;
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Ticker styling */
+    #ticker {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #000;
+      color: #ffcccc;
+      font-size: 1em;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      z-index: 9999;
+      border-top: 2px solid #d50000;
+    }
+
+    #ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollTicker 30s linear infinite;
+    }
+
+    @keyframes scrollTicker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Essendon’s Finals Drought Tracker</h1>
+  <div id="counter">Calculating the Pain...</div>
+  <footer>Last finals win: 4 September 2004</footer>
+  <div id="fact">"WTF is this?..."</div>
+
+  <!-- Trophy image -->
+  <img src="https://images.7news.com.au/publication/C-9988378/bb4c387b6534393fb4f4ad2cdc10878214e04a35.jpg?imwidth=650&impolicy=sevennews_v2"
+       alt="Essendon player with trophy"
+       style="width: 320px; margin-top: 30px; border-radius: 8px; box-shadow: 0 0 20px #d50000;" />
+
+  <!-- Ticker -->
+  <div id="ticker"><span id="tickerText">Loading drought facts...</span></div>
+
+  <script>
+    const lastWin = new Date("2004-09-04T00:00:00Z");
+
+    const facts = [
+      "Facebook was born. You've had time to delete it twice.",
+      "YouTube launched in 2005, at least you can watch a finals win before then.",
+      "The iPhone was invented. We've had 17 of them since.",
+      "Taylor Swift released her debut album. She's re-recorded it now.",
+      "Barack Obama served two terms. And left.",
+      "Avatar came out. And its sequel. And it’s still not as long as this drought.",
+      "Netflix went from mailing DVDs to making Oscar films.",
+      "TikTok didn’t exist. Now it’s raising your kids.",
+      "Pluto was a planet. Then it wasn’t. Still no finals win.",
+      "People born after the last finals win can now legally drink.",
+      "The Queen died. The drought didn’t.",
+      "AI can write websites now. Finals wins? Still pending.",
+      "Australia had five Prime Ministers. Essendon’s had zero finals wins.",
+      "We survived Y2K panic, COVID lockdowns, and Threads. But not September.",
+      "Three Spider-Men movies since. Still no web of finals success.",
+      "We went from MySpace to Meta. Essendon’s still stuck on page one.",
+      "The Essendon supplements saga started, peaked, and got its own Wikipedia page.",
+      "The emoji keyboard tripled in size. Still no emoji for 'Essendon finals joy.'",
+      "We’ve had two Olympic Games, three World Cups, and a Matildas miracle. Essendon? Still warming up."
+    ];
+
+    function updateCounter() {
+      const now = new Date();
+      const diff = now - lastWin;
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const seconds = totalSeconds % 60;
+      const totalMinutes = Math.floor(totalSeconds / 60);
+      const minutes = totalMinutes % 60;
+      const totalHours = Math.floor(totalMinutes / 60);
+      const hours = totalHours % 24;
+      const totalDays = Math.floor(totalHours / 24);
+
+      document.getElementById("counter").textContent =
+        `${totalDays} days, ${hours}h ${minutes}m ${seconds}s of Heartbreak`;
+
+      
+    }
+
+    setInterval(updateCounter, 1000);
+
+    // Generate peapods
+    for (let i = 0; i < 30; i++) {
+      const pea = document.createElement("div");
+      pea.className = "peapod";
+      pea.textContent = "🫛";
+      pea.style.left = Math.random() * 100 + "vw";
+      pea.style.animationDuration = (5 + Math.random() * 5) + "s";
+      pea.style.animationDelay = (Math.random() * 10) + "s";
+      document.body.appendChild(pea);
+    }
+
+    // Ticker logic
+    function updateTicker() {
+      const index = Math.floor(Math.random() * facts.length);
+      document.getElementById("tickerText").textContent = `BREAKING NEWS: ${facts[index]}`;
+    }
+
+    setInterval(updateTicker, 30000);
+    updateTicker(); // Initial load
+  </script>
+</body>
+</html>
