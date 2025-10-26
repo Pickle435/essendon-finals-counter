@@ -96,10 +96,10 @@
   </style>
 </head>
 <body>
-  <h1>Time Since Essendon Last Won a Finals...</h1>
+  <h1>Time Since Essendon Last Won a Finals:</h1>
   <div id="counter">Calculating the Pain...</div>
   <footer>Last finals win: 4 September 2004</footer>
-  <div id="fact">Forever in debt to the man who gave us hope, and took our September. Cheers Duddoro👍 </div>
+  <div id="fact">Dedicated to the man who kept this legendary streak going. Cheers Duddoro.❤️ </div>
 
   <!-- Trophy image -->
   <img src="duddoroforever.png"
@@ -113,21 +113,19 @@
     const lastWin = new Date("2004-09-04T00:00:00Z");
 
     const facts = [
-      "Facebook hadn’t even existed before Essendon’s last finals win. Now it’s got Marketplace, Reels, and your uncle’s conspiracy theories.",
-      "YouTube was launched in 2005, no finals win since.",
       "The iPhone was invented since Essendon’s last finals win. We’ve had 17 of them since. Essendon’s still stuck on Snake II.",
-      "Taylor Swift released her debut album. She's re-recorded it now. Essendon still yet to record a finals win.",
-      "Bitcoin was invented, mined, lost on hard drives and traded for pizza. Essendon tried trading a 30yo for four round one draft picks.",
-      "Bunnings added sausage sizzles, DIY workshops, and a mobile app. Essendon added another finals loss.",
-      "Netflix made documentaries about tigers, cat burgalars, and a bloke who married a hologram. Essendon still can’t document a finals win.",
+      "Essendon tried trading a 30yo for four round one draft picks 😂.",
+      "Netflix made a documentary about a bloke who married a hologram. Essendon still can’t document a finals win.",
       "Uber went from ride shares to flying cars. Essendon still can’t get a lift into September.",
       "Pluto used to be a planet. Now it isn't. Still no finals win.",
       "People born after the last finals win can now legally drink.",
       "The Queen died. The drought didn’t.",
-      "Tom Cruise has done five Mission Impossible movies. Essendon is suing for plagiarism, they’ve been living the title since 2004.",
-      "We went from MySpace to Meta. Essendon’s still stuck on page one.",
-      'John Farnham announces another comeback. Says he’ll retire when Essendon wins a final... so never.',
-      "Theres since been ten Olympic Games, Usain Bolt broke records, and we got Raygun… Essendon got another year of Doddoro.",
+      "Local accountant has been arrested for sniffing grass naked in broad daylight.",
+      "We moved from floppy disks to cloud sync. Essendon’s still asking Jeeves for a game plan.",
+      "Tom Cruise has done five Mission Impossible films. Essendon is suing for plagiarism, they’ve been living the title since 2004.",
+      "We went from MySpace to Facebook to Meta. Essendon’s still trying to fax their game plan.",
+      'John Farnham has announced yet another comeback. Says he’ll retire when Essendon wins a final... so probs never.',
+      "There's since been ten Olympic Games, Usain Bolt broke records, and we got Raygun… Essendon got another year of Doddoro.",
     ];
 
     function updateCounter() {
@@ -164,7 +162,7 @@
     // Ticker logic
     function updateTicker() {
       const index = Math.floor(Math.random() * facts.length);
-      document.getElementById("tickerText").textContent = `BREAKING NEWS: ${facts[index]}`;
+      document.getElementById("tickerText").textContent = `BREAKING: ${facts[index]}`;
     }
 
     setInterval(updateTicker, 30000);
